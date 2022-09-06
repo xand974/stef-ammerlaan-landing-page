@@ -62,8 +62,8 @@ export default function Agency() {
             du dérèglement climatique. Que ce soit dans le neuf et
             particulièrement dans la rénovation, une attention particulière est
             apportée sur la gestion de la ressource. Qu’il s’agisse des
-            matériaux ou bien des éléments "déjà là”, ceux-ci seront mis au
-            centre de la conception. La notion de fonctionnalité paraîtra
+            matériaux ou bien des éléments &quot;déjà là&quot;, ceux-ci seront
+            mis au centre de la conception. La notion de fonctionnalité paraîtra
             logique et intuitive. L’articulation des espaces ne laissera aucun
             obstacle afin de permettre des traversées, des ambiances
             confortables.

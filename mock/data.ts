@@ -54,7 +54,7 @@ export const SingleHouseTwo = `/assets/images/Single-House-2.png`;
 export const houses: HouseModel[] = [
   {
     id: "0001",
-    date: new Date("2022"),
+    date: new Date("2022") as any,
     status: "underConstruction",
     missionCompleted: true,
     picture: SingleHouseOne,
@@ -85,7 +85,7 @@ export const houses: HouseModel[] = [
   },
   {
     id: "0002",
-    date: new Date("2022"),
+    date: new Date("2022") as any,
     status: "inProgress",
     missionCompleted: false,
     picture: SingleHouseTwo,
