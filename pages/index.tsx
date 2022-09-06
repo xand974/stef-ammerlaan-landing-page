@@ -26,7 +26,7 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Stef Ammerlaan Architecture</title>
-        <meta http-equiv="content-language" content="fr-fr" />
+        <meta httpEquiv="content-language" content="fr-fr" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#fff" />
         <meta
