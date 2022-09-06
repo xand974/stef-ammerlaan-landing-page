@@ -11,6 +11,7 @@ import NavbarLayout from "../components/NavbarLayout";
 import AnimatedSection from "../components/AnimatedSection";
 import Link from "next/link";
 import AnimatedLogo from "../components/AnimatedLogo";
+import cls from "classnames";
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
@@ -60,7 +61,10 @@ const Home: NextPage = () => {
             </div>
             <div className={styles.home__wrapper__bottom}>
               <Link
-                className={styles.home__wrapper__bottom__subtitle}
+                className={cls(
+                  styles.home__wrapper__bottom__subtitle,
+                  styles["home__wrapper__bottom__subtitle--email"]
+                )}
                 href="mailto:agence@ammerlaanstefarchitecture.com"
               >
                 agence@ammerlaanstefarchitecture.com

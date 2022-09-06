@@ -29,13 +29,14 @@
     &__bottom {
       margin-bottom: 3em;
       text-align: center;
-      &__subtitle {
+      &__subtitle,
+      a {
         color: var(--mid-gray);
         font-size: 0.9rem;
-        &:nth-of-type(1) {
-          margin-bottom: 10px;
-          text-decoration: underline;
-          cursor: pointer;
+        text-decoration: underline;
+        cursor: pointer;
+        &:last-child {
+          margin-top: 5px;
         }
       }
     }
