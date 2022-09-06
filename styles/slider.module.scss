@@ -2,9 +2,6 @@
 
 .slider {
   // margin-top: calc(3rem + 60px);
-  @include for-small-laptop {
-    margin-top: 2rem;
-  }
   &__title {
     display: flex;
     align-items: center;

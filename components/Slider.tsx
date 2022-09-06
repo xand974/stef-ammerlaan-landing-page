@@ -11,7 +11,6 @@ export default function Slider({ images }: SliderProp) {
     try {
       const url = `/house/${id}`;
       router.push(url);
-
       return;
     } catch (error) {
       throw error;

@@ -1,11 +1,9 @@
 import styles from "../../styles/single-project.module.scss";
 import { projects } from "../../mock/data";
-import { useEffect, useState } from "react";
 import { ProjectModel } from "../../types/index";
 import Slider from "../../components/Slider";
 import Footer from "../../components/Footer";
 import AnimatedSection from "../../components/AnimatedSection";
-import { useRouter } from "next/router";
 
 const SingleProject = (project: ProjectModel) => {
   return (
