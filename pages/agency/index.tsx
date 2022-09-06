@@ -4,10 +4,33 @@ import { ownerImg } from "../../mock/data";
 import AnimatedSection from "../../components/AnimatedSection";
 import Image from "next/image";
 import cls from "classnames";
+import Head from "next/head";
 
 export default function Agency() {
   return (
     <AnimatedSection className={styles.agency}>
+      <Head>
+        <title>Agence - Stef Ammerlaan</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#fff" />
+        <meta
+          name="keywords"
+          content="architecture, agence, stef, ammerlaan, architecte, nîmes, gard, avignon, montpellier, construction, maison, bâtiment, permis de construire, chantier, projet, image, art, balcon, Nîmes"
+        />
+        <meta
+          name="description"
+          content="Architecte franco-néerlandais basé dans le Gard."
+        />
+        <meta property="og:title" content="Stef Ammerlaan - Architecture" />
+        <meta
+          property="og:url"
+          content="https://ammerlaanstefarchitecture.com"
+        />
+        <meta
+          property="og:description"
+          content="Architecte franco-néerlandais basé dans le Gard."
+        />
+      </Head>
       <div className={styles.agency__wrapper}>
         <div className={styles.agency__wrapper__top}>
           <div className={styles.agency__wrapper__top__img}>
