@@ -6,6 +6,7 @@ import { HouseModel } from "../../types";
 import { houses, getSliderImages, mappedKeyImages } from "../../mock/data";
 import Image from "next/image";
 import cls from "classnames";
+import Head from "next/head";
 
 const House = (house: HouseModel | undefined) => {
   const [imgSrc, setImgSrc] = useState("");
@@ -101,6 +102,24 @@ const House = (house: HouseModel | undefined) => {
   }
   return (
     <AnimatedSection className={styles.house}>
+      <Head>
+        <title>Stef Ammerlaan - Maison {house.id}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#fff" />
+        <meta
+          name="keywords"
+          content="site, architecture, stef, ammerlaan, architecte, nîmes, gard, avignon, montpellier, construction, maison, bâtiment, permis de construire, chantier, projet, image, art, balcon, Nîmes"
+        />
+        <meta
+          name="description"
+          content="Chaque maison développée évolue de manière buissonnante, jusqu’à ce que le projet dépasse les attentes."
+        />
+        <meta property="og:title" content="Stef Ammerlaan - Maisons" />
+        <meta
+          property="og:description"
+          content="Chaque maison développée évolue de manière buissonnante, jusqu’à ce que le projet dépasse les attentes."
+        />
+      </Head>
       <header className={styles.house__header}>
         <h3 className={styles.house__header__title}>Maison {house?.id}</h3>
         <p className={styles.house__header__subtitle}>

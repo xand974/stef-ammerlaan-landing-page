@@ -10,7 +10,7 @@ const SingleProject = (project: ProjectModel) => {
   return (
     <AnimatedSection className={styles.single__container}>
       <Head>
-        <title>Stef Ammerlaan - Maison {project.id}</title>
+        <title>Stef Ammerlaan - Projects</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#fff" />
         <meta
@@ -22,10 +22,9 @@ const SingleProject = (project: ProjectModel) => {
           content="Chaque maison développée  chez Ammerlaan Stef Architecture démarre par la prise en compte d’un programme établi du Maitre d’Ouvrage (client).
           L’architecture proposée répond aux attentes escomptées ainsi que les contraintes du site."
         />
-        <meta property="og:title" content="Stef Ammerlaan - Architecture" />
         <meta
-          property="og:url"
-          content="https://ammerlaanstefarchitecture.com"
+          property="og:title"
+          content="Stef Ammerlaan Architecture - Projets"
         />
         <meta
           property="og:description"
