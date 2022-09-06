@@ -26,6 +26,7 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Stef Ammerlaan Architecture</title>
+        <meta http-equiv="content-language" content="fr-fr" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#fff" />
         <meta
@@ -45,7 +46,7 @@ const Home: NextPage = () => {
           property="og:description"
           content="Architecte franco-néerlandais basé dans le Gard, Stef Ammerlaan vous propose des solutions d'Architectures novatrices"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
 
       <NavbarLayout>
@@ -53,9 +54,9 @@ const Home: NextPage = () => {
           <div className={styles.home__wrapper}>
             <div className={styles.home__wrapper__top}>
               <AnimatedLogo animated={false} />
-              <p className={styles.home__wrapper__top__title}>
+              <h1 className={styles.home__wrapper__top__title}>
                 AMMERLAAN STEF ARCHITECTURE
-              </p>
+              </h1>
             </div>
             <div className={styles.home__wrapper__bottom}>
               <Link

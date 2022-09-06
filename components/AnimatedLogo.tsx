@@ -122,7 +122,11 @@ export default function AnimatedLogo({ animated }: AnimatedLogoType) {
       {animated ? (
         renderLogo()
       ) : (
-        <motion.img layoutId="loading-img" src={imgLogo} />
+        <motion.img
+          layoutId="loading-img"
+          src={imgLogo}
+          alt="official stef ammerlaan logo"
+        />
       )}
     </div>
   );
