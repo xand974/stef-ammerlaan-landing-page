@@ -104,9 +104,6 @@
     display: flex;
     flex-direction: column;
     height: 70vh;
-    @include for-phone-only {
-      height: 40vh;
-    }
     &__title {
       margin-bottom: 20px;
       text-align: center;
