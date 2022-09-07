@@ -104,6 +104,10 @@
     display: flex;
     flex-direction: column;
     height: 70vh;
+    //* handle the size of the animated houses for small screens
+    // @include for-phone-only {
+    //   height: 40vh;
+    // }
     &__title {
       margin-bottom: 20px;
       text-align: center;
@@ -130,6 +134,7 @@
         @include for-phone-only {
           width: 100vw;
           margin: initial;
+          height: 30%;
         }
         &__img {
           width: 100%;

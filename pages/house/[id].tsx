@@ -177,7 +177,9 @@ const House = (house: HouseModel | undefined) => {
               />
             </div>
           ) : (
-            <p className={styles.house__concept__images__error}>No data</p>
+            <p className={styles.house__concept__images__error}>
+              Images are loading
+            </p>
           )}
         </div>
       </section>
