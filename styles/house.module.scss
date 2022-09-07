@@ -105,7 +105,7 @@
     flex-direction: column;
     height: 70vh;
     @include for-phone-only {
-      height: 30vh;
+      height: 40vh;
     }
     &__title {
       margin-bottom: 20px;
