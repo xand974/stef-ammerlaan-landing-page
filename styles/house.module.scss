@@ -115,10 +115,19 @@
       margin: auto;
       height: 100vh;
       position: relative;
+      @include for-phone-only {
+        width: 100vw;
+        margin: initial;
+      }
       &__container {
         position: relative;
         width: 60vw;
         height: 100%;
+
+        @include for-phone-only {
+          width: 100vw;
+          margin: initial;
+        }
         &__img {
           width: 100%;
           height: 100%;

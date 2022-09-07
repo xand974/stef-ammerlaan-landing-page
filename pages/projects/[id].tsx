@@ -68,8 +68,6 @@ export const getStaticProps = async (context: { params: { id: string } }) => {
   const id = context.params.id;
   const project = projects.filter((item) => item.id === id)[0] ?? null;
 
-  console.log(project);
-
   if (!project)
     return {
       props: {},

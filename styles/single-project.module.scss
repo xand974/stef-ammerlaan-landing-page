@@ -9,6 +9,9 @@
   display: grid;
   align-items: center;
   grid-template-rows: 50% 30%;
+  @include for-big-desktop-up {
+    grid-template-rows: 40% 30%;
+  }
 
   @include for-tablet-landscape-up {
     display: flex;
@@ -49,6 +52,9 @@
         font-size: 0.74rem;
       }
 
+      @include for-desktop-up {
+      }
+
       &:nth-of-type(1) {
         grid-area: 2 / 2 / span 1 / span 1;
         font-weight: var(--text-bold);
@@ -64,7 +70,10 @@
   &__bottom {
     @include for-tablet-landscape-up {
       margin-bottom: 10rem;
-      width: 65%;
+      width: 70%;
+    }
+    @include for-phone-only {
+      width: 80%;
     }
   }
   &__footer {

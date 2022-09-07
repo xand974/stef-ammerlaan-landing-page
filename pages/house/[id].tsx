@@ -1,16 +1,18 @@
-import styles from "../../styles/house.module.scss";
+import styles from "styles/house.module.scss";
 import { useEffect, useState } from "react";
-import AnimatedSection from "../../components/AnimatedSection";
-import Footer from "../../components/Footer";
-import { HouseModel } from "../../types";
-import { houses, getSliderImages, mappedKeyImages } from "../../mock/data";
+import AnimatedSection from "components/AnimatedSection";
+import Footer from "components/Footer";
+import { HouseModel } from "types";
+import { houses, getSliderImages, mappedKeyImages } from "mock/data";
 import Image from "next/image";
 import cls from "classnames";
 import Head from "next/head";
+import { convertImage, sleep, toBase64 } from "utils/utils.helper";
 
 const House = (house: HouseModel | undefined) => {
   const [imgSrc, setImgSrc] = useState("");
-
+  const [prevImgSrc, setPrevImgSrc] = useState("");
+  const [nextImgLoaded, setNextImgLoaded] = useState(true);
   //#region UI
   useEffect(() => {
     let isUnsubscribed = false;
@@ -22,15 +24,20 @@ const House = (house: HouseModel | undefined) => {
         return;
       }
       for (let i = 1; i <= currentKey.maxCount; i++) {
-        await new Promise((res) => setTimeout(res, 1000));
+        await sleep(2000);
         if (isUnsubscribed) return;
         setImgSrc(getSliderImages(house.id, i));
+        setPrevImgSrc(imgSrc);
         if (i === currentKey.maxCount) {
           i = 1;
           continue;
         }
       }
     })();
+
+    return () => {
+      isUnsubscribed = true;
+    };
   }, [house?.id]);
 
   const getStatus = (
@@ -96,7 +103,6 @@ const House = (house: HouseModel | undefined) => {
     );
   };
   //#endregion
-
   if (!house) {
     return <div>no data</div>;
   }
@@ -151,12 +157,31 @@ const House = (house: HouseModel | undefined) => {
         <div className={styles.house__concept__images}>
           {imgSrc ? (
             <div className={styles.house__concept__images__container}>
-              <Image
-                layout="fill"
-                src={imgSrc}
-                className={styles.house__concept__images__container__img}
-                alt={house.alt}
-              />
+              {nextImgLoaded ? (
+                <Image
+                  layout="fill"
+                  src={imgSrc}
+                  className={styles.house__concept__images__container__img}
+                  alt={house.alt}
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                    convertImage(1000, 1005)
+                  )}`}
+                />
+              ) : (
+                <Image
+                  layout="fill"
+                  src={prevImgSrc}
+                  className={styles.house__concept__images__container__img}
+                  alt={house.alt}
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                    convertImage(1000, 1005)
+                  )}`}
+                  onLoadStart={() => setNextImgLoaded(false)}
+                  onLoadingComplete={() => setNextImgLoaded(true)}
+                />
+              )}
             </div>
           ) : (
             <p className={styles.house__concept__images__error}>No data</p>
