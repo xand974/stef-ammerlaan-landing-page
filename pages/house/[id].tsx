@@ -11,8 +11,15 @@ import { convertImage, sleep, toBase64 } from "utils/utils.helper";
 
 const House = (house: HouseModel | undefined) => {
   const [imgSrc, setImgSrc] = useState("");
-  const [prevImgSrc, setPrevImgSrc] = useState("");
-  const [nextImgLoaded, setNextImgLoaded] = useState(true);
+
+  const loadStart = async () => {
+    await sleep(200);
+  };
+
+  const loadComplete = async () => {
+    await sleep(200);
+  };
+
   //#region UI
   useEffect(() => {
     let isUnsubscribed = false;
@@ -27,7 +34,6 @@ const House = (house: HouseModel | undefined) => {
         await sleep(2000);
         if (isUnsubscribed) return;
         setImgSrc(getSliderImages(house.id, i));
-        setPrevImgSrc(imgSrc);
         if (i === currentKey.maxCount) {
           i = 1;
           continue;
@@ -157,31 +163,18 @@ const House = (house: HouseModel | undefined) => {
         <div className={styles.house__concept__images}>
           {imgSrc ? (
             <div className={styles.house__concept__images__container}>
-              {nextImgLoaded ? (
-                <Image
-                  layout="fill"
-                  src={imgSrc}
-                  className={styles.house__concept__images__container__img}
-                  alt={house.alt}
-                  placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                    convertImage(1000, 1005)
-                  )}`}
-                />
-              ) : (
-                <Image
-                  layout="fill"
-                  src={prevImgSrc}
-                  className={styles.house__concept__images__container__img}
-                  alt={house.alt}
-                  placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                    convertImage(1000, 1005)
-                  )}`}
-                  onLoadStart={() => setNextImgLoaded(false)}
-                  onLoadingComplete={() => setNextImgLoaded(true)}
-                />
-              )}
+              <Image
+                layout="fill"
+                src={imgSrc}
+                className={styles.house__concept__images__container__img}
+                alt={house.alt}
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  convertImage(1000, 1005)
+                )}`}
+                onLoad={loadStart}
+                onLoadingComplete={loadComplete}
+              />
             </div>
           ) : (
             <p className={styles.house__concept__images__error}>No data</p>
