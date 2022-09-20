@@ -34,7 +34,7 @@ export default function ImagesAnimation({ id, alt }: ImagesAnimationProp) {
       for (let i = 0; i < imagesRefs.length; i++) {
         const imgElement = imagesRefs[i].current;
         if (!imgElement) return;
-        await sleep(1000);
+        await sleep(1500);
         const zIndex =
           imgElement.style.zIndex === "" ? "1" : imgElement.style.zIndex;
         const zIndexInt = parseInt(zIndex) + 1;
