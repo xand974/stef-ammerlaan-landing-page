@@ -8,6 +8,10 @@ import Image from "next/image";
 import cls from "classnames";
 import Head from "next/head";
 import { convertImage, sleep, toBase64 } from "utils/utils.helper";
+import Status from "./components/Status";
+import Mission from "./components/Mission";
+import Description from "./components/Description";
+import ImagesAnimation from "./components/ImagesAnimation";
 
 const House = (house: HouseModel | undefined) => {
   const [imgSrc, setImgSrc] = useState("");
@@ -46,72 +50,11 @@ const House = (house: HouseModel | undefined) => {
     };
   }, [house?.id]);
 
-  const getStatus = (
-    status: "completed" | "underConstruction" | "inProgress"
-  ): React.ReactNode => {
-    switch (status) {
-      case "underConstruction":
-        return (
-          <p className={styles.text}>
-            <span className={styles.bold}>En chantier /</span>
-            <span className={styles.light}> Under Construction</span>
-          </p>
-        );
-      case "inProgress":
-        return (
-          <p className={styles.text}>
-            <span className={styles.bold}>En instruction /</span>
-            <span className={styles.light}> Instruction in progress</span>
-          </p>
-        );
-    }
-  };
-
-  const getMissionCompleted = (
-    isCompleted: boolean | undefined
-  ): React.ReactNode => {
-    return isCompleted ? (
-      <>
-        <p className={styles.text}>
-          <span className={styles.bold}>Mission complète /</span>
-          <span className={styles.light}> Full assignment</span>
-        </p>
-      </>
-    ) : (
-      <>
-        <p className={styles.text}>
-          <span className={styles.bold}>Mission Pc /</span>
-          <span className={styles.light}> Building Permit</span>
-        </p>
-      </>
-    );
-  };
-  const getDescription = (
-    description: HouseModel["description"] | undefined
-  ) => {
-    if (!description) return;
-    return (
-      <div className={styles.house__main__description}>
-        {description.map((item, index) => (
-          <div
-            key={index}
-            className={cls(
-              styles.house__main__description__container,
-              item.lan === "fr"
-                ? styles["house__main__description__container--bold"]
-                : styles["house__main__description__container--light"]
-            )}
-          >
-            {item.content}
-          </div>
-        ))}
-      </div>
-    );
-  };
   //#endregion
   if (!house) {
     return <div>no data</div>;
   }
+
   return (
     <AnimatedSection className={styles.house}>
       <Head>
@@ -139,10 +82,10 @@ const House = (house: HouseModel | undefined) => {
         </p>
         <div className={styles.house__header__subtitle}>
           <span className={styles.bold}>Statut:</span>{" "}
-          {getStatus(house?.status)}
+          <Status status={house?.status} />
         </div>
         <div className={styles.house__header__subtitle}>
-          {getMissionCompleted(house?.missionCompleted)}
+          <Mission isCompleted={house?.missionCompleted} />
         </div>
         <p className={styles.house__header__subtitle}></p>
       </header>
@@ -156,13 +99,14 @@ const House = (house: HouseModel | undefined) => {
             alt={house.alt}
           />
         </div>
-        {getDescription(house?.description)}
+        <Description description={house?.description} />
       </main>
 
       <section className={styles.house__concept}>
         <h5 className={styles.house__concept__title}>Concept</h5>
         <div className={styles.house__concept__images}>
-          {imgSrc ? (
+          <ImagesAnimation id={house?.id} alt={house?.alt} />
+          {/* {imgSrc ? (
             <div className={styles.house__concept__images__container}>
               <Image
                 layout="fill"
@@ -181,7 +125,7 @@ const House = (house: HouseModel | undefined) => {
             <p className={styles.house__concept__images__error}>
               Images are loading
             </p>
-          )}
+          )} */}
         </div>
       </section>
 
