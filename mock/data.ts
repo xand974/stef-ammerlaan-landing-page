@@ -3,11 +3,6 @@ import { ProjectModel } from "../types/index";
 
 export const navbarLinks: LinkType[] = [
   {
-    name: "Home",
-    link: "/",
-    isLink: true,
-  },
-  {
     name: "Agence",
     link: "/agency",
     isLink: true,
@@ -44,7 +39,10 @@ export const projects: ProjectModel[] = [
         Finally, the house conception evolves like Darwin’s theory until it’s beyond expectations.`,
       },
     ],
-    images: [`/assets/images/House-1.png`, `/assets/images/House-2.png`],
+    images: [
+      `/assets/images/Single-House-1.png`,
+      `/assets/images/Single-House-2.png`,
+    ],
   },
 ];
 

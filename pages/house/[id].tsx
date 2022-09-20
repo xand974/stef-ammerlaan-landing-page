@@ -138,7 +138,8 @@ const House = (house: HouseModel | undefined) => {
           Date : {house?.date.split(" ")[3]}
         </p>
         <div className={styles.house__header__subtitle}>
-          <span className={styles.bold}>Status:</span> {getStatus(house.status)}
+          <span className={styles.bold}>Statut:</span>{" "}
+          {getStatus(house?.status)}
         </div>
         <div className={styles.house__header__subtitle}>
           {getMissionCompleted(house?.missionCompleted)}

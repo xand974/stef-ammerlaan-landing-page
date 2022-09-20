@@ -37,6 +37,7 @@ export default function Slider({ images }: SliderProp) {
           <div className={styles.slider__item__text__img}>
             <Image
               layout="fill"
+              objectFit="contain"
               className={styles.slider__item__img}
               src={item.image}
               alt="sketch of a house under building"

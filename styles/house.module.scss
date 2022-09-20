@@ -130,7 +130,7 @@
         position: relative;
         width: 60vw;
         height: 100%;
-
+        object-fit: contain;
         @include for-phone-only {
           width: 100vw;
           margin: initial;
