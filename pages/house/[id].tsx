@@ -27,17 +27,18 @@ const House = (house: HouseModel | undefined) => {
   //#region UI
   useEffect(() => {
     let isUnsubscribed = false;
-    if (!house) return;
+    const { id } = house as HouseModel;
+    if (!id) return;
     (async () => {
       const currentKey =
-        mappedKeyImages.find((item) => item.key === house.id) ?? null;
+        mappedKeyImages.find((item) => item.key === id) ?? null;
       if (!currentKey) {
         return;
       }
       for (let i = 1; i <= currentKey.maxCount; i++) {
         await sleep(2000);
         if (isUnsubscribed) return;
-        setImgSrc(getSliderImages(house.id, i));
+        setImgSrc(getSliderImages(id, i));
         if (i === currentKey.maxCount) {
           i = 1;
           continue;
@@ -48,7 +49,7 @@ const House = (house: HouseModel | undefined) => {
     return () => {
       isUnsubscribed = true;
     };
-  }, [house?.id]);
+  }, [house, house?.id]);
 
   //#endregion
   if (!house) {

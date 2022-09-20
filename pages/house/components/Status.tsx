@@ -21,6 +21,6 @@ export default function Status({ status }: StatusProp) {
         </p>
       );
     default:
-      return <p className={styles.light}>Pas d'indications</p>;
+      return <p className={styles.light}>Pas d&apos;indications</p>;
   }
 }
