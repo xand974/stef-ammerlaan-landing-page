@@ -30,6 +30,7 @@ export default function ImagesAnimation({ id, alt }: ImagesAnimationProp) {
         className: styles.anim__container__wrapper__img,
         layout: "fill",
         priority: true,
+        objectFit: "contain",
       });
       images.push(image);
     }
@@ -62,9 +63,12 @@ export default function ImagesAnimation({ id, alt }: ImagesAnimationProp) {
         const imgElement = imagesRefs[i].current;
         if (!imgElement) return;
         await sleep(1000);
-        imgElement.style.zIndex += 1;
-        console.log(i, imagesRefs.length);
+        const zIndex =
+          imgElement.style.zIndex === "" ? "1" : imgElement.style.zIndex;
+        const zIndexInt = parseInt(zIndex) + 1;
+        console.log(zIndex);
 
+        imgElement.style.zIndex = zIndexInt.toString();
         if (i === imagesRefs.length - 1) {
           i = 0;
         }
