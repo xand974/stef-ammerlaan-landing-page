@@ -107,26 +107,6 @@ const House = (house: HouseModel | undefined) => {
         <h5 className={styles.house__concept__title}>Concept</h5>
         <div className={styles.house__concept__images}>
           <ImagesAnimation id={house?.id} alt={house?.alt} />
-          {/* {imgSrc ? (
-            <div className={styles.house__concept__images__container}>
-              <Image
-                layout="fill"
-                src={imgSrc}
-                className={styles.house__concept__images__container__img}
-                alt={house.alt}
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                  convertImage(1000, 1005)
-                )}`}
-                onLoad={loadStart}
-                onLoadingComplete={loadComplete}
-              />
-            </div>
-          ) : (
-            <p className={styles.house__concept__images__error}>
-              Images are loading
-            </p>
-          )} */}
         </div>
       </section>
 

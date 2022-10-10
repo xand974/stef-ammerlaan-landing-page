@@ -9,6 +9,7 @@
   display: grid;
   align-items: center;
   grid-template-rows: 50% 30%;
+  position: relative;
   @include for-big-desktop-up {
     grid-template-rows: 40% 30%;
   }
@@ -21,6 +22,13 @@
     position: relative;
   }
 
+  @include for-small-height-device {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+  }
+
   &__top {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -28,6 +36,12 @@
     gap: 1.2rem;
 
     @include for-tablet-landscape-up {
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include for-small-height-device {
       margin-bottom: 40px;
       display: flex;
       flex-direction: column;
@@ -48,6 +62,11 @@
         font-size: 0.7rem;
         width: 90%;
       }
+
+      @include for-small-height-device {
+        font-size: 1rem;
+      }
+
       @include for-phone-only {
         font-size: 0.74rem;
       }
@@ -71,6 +90,11 @@
     @include for-tablet-landscape-up {
       margin-bottom: 10rem;
       width: 70%;
+    }
+
+    @include for-small-height-device {
+      margin-bottom: 10rem;
+      width: 100%;
     }
     @include for-phone-only {
       width: 80%;

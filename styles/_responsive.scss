@@ -3,6 +3,13 @@
     @content;
   }
 }
+
+@mixin for-small-height-device {
+  @media (max-height: 650px) {
+    @content;
+  }
+}
+
 @mixin for-tablet-portrait-up {
   @media (min-width: 900px) {
     @content;
