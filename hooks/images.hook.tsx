@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import { getSliderImages, mappedKeyImages } from "mock/data";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { getSliderImages, mappedKeyImages } from 'mock/data';
 
 export const useAnimatedImages = (id: string, styles: any, alt?: string) => {
-  const [images, setImages] = useState([] as JSX.Element[]);
+  const [images, setImages] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
     if (!id) return;
@@ -16,14 +16,14 @@ export const useAnimatedImages = (id: string, styles: any, alt?: string) => {
       const ImageDiv = () =>
         Image({
           src,
-          alt,
+          alt: alt || '',
           className: styles.anim__container__wrapper__img,
-          layout: "fill",
+          layout: 'fill',
           priority: true,
-          objectFit: "contain",
+          objectFit: 'contain',
         });
 
-      setImages((prev) => [...prev, <ImageDiv />]);
+      setImages((prev) => [...prev, <ImageDiv key={i} />]);
     }
   }, []);
 

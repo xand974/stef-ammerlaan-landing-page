@@ -1,20 +1,20 @@
-import styles from "styles/house.module.scss";
-import { useEffect, useState } from "react";
-import AnimatedSection from "components/AnimatedSection";
-import Footer from "components/Footer";
-import { HouseModel } from "types";
-import { houses, getSliderImages, mappedKeyImages } from "mock/data";
-import Image from "next/image";
-import cls from "classnames";
-import Head from "next/head";
-import { convertImage, sleep, toBase64 } from "utils/utils.helper";
-import Status from "./components/Status";
-import Mission from "./components/Mission";
-import Description from "./components/Description";
-import ImagesAnimation from "./components/ImagesAnimation";
+import styles from 'styles/house.module.scss';
+import { useEffect, useState } from 'react';
+import AnimatedSection from 'components/AnimatedSection';
+import Footer from 'components/Footer';
+import { HouseModel } from 'types';
+import { houses, getSliderImages, mappedKeyImages } from 'mock/data';
+import Image from 'next/image';
+import cls from 'classnames';
+import Head from 'next/head';
+import { convertImage, sleep, toBase64 } from 'utils/utils.helper';
+import Status from './components/Status';
+import Mission from './components/Mission';
+import Description from './components/Description';
+import ImagesAnimation from './components/ImagesAnimation';
 
 const House = (house: HouseModel | undefined) => {
-  const [imgSrc, setImgSrc] = useState("");
+  const [imgSrc, setImgSrc] = useState('');
 
   const loadStart = async () => {
     await sleep(200);
@@ -79,10 +79,10 @@ const House = (house: HouseModel | undefined) => {
       <header className={styles.house__header}>
         <h3 className={styles.house__header__title}>Maison {house?.id}</h3>
         <p className={styles.house__header__subtitle}>
-          Date : {house?.date.split(" ")[3]}
+          Date : {house?.date.split(' ')[3]}
         </p>
         <div className={styles.house__header__subtitle}>
-          <span className={styles.bold}>Statut:</span>{" "}
+          <span className={styles.bold}>Statut:</span>{' '}
           <Status status={house?.status} />
         </div>
         <div className={styles.house__header__subtitle}>
@@ -97,7 +97,7 @@ const House = (house: HouseModel | undefined) => {
             layout="fill"
             src={house.picture}
             className={styles.house__main__picture}
-            alt={house.alt}
+            alt={house.alt || ''}
           />
         </div>
         <Description description={house?.description} />

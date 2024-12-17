@@ -1,10 +1,10 @@
-import React, { RefObject, useRef } from "react";
-import Image from "next/image";
-import { mappedKeyImages, getSliderImages } from "mock/data";
-import styles from "styles/images-animations.module.scss";
-import { useState, useEffect } from "react";
-import { sleep } from "utils/utils.helper";
-import { useAnimatedImages } from "../../../hooks/images.hook";
+import React, { RefObject, useRef } from 'react';
+import Image from 'next/image';
+import { mappedKeyImages, getSliderImages } from 'mock/data';
+import styles from 'styles/images-animations.module.scss';
+import { useState, useEffect } from 'react';
+import { sleep } from 'utils/utils.helper';
+import { useAnimatedImages } from '../../../hooks/images.hook';
 
 interface ImagesAnimationProp {
   alt: string | undefined;
@@ -22,7 +22,7 @@ export default function ImagesAnimation({ id, alt }: ImagesAnimationProp) {
     setImagesRef((prev) => {
       prev = [];
       for (let i = 0; i < images.length; i++) {
-        prev.push(React.createRef());
+        prev.push(React.createRef<any>());
       }
       return prev;
     });
@@ -36,7 +36,7 @@ export default function ImagesAnimation({ id, alt }: ImagesAnimationProp) {
         if (!imgElement) return;
         await sleep(1500);
         const zIndex =
-          imgElement.style.zIndex === "" ? "1" : imgElement.style.zIndex;
+          imgElement.style.zIndex === '' ? '1' : imgElement.style.zIndex;
         const zIndexInt = parseInt(zIndex) + 1;
 
         imgElement.style.zIndex = zIndexInt.toString();
